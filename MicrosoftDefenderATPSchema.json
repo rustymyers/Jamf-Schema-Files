@@ -1,0 +1,157 @@
+{
+    "title": "Microsoft Defender ATP (com.microsoft.wdav)",
+    "description": "Preference Domain: com.microsoft.wdav,  Application: Microsoft Defender ATP  Visit <a href='https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences'>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences</a> for preference information",
+    "type": "object",
+    "properties": {
+        "antivirusEngine": {
+            "title": "AntiVirus Config",
+            "description": "Configure AntiVirus Engine.",
+            "properties": {
+                "allowedThreats": {
+                    "title": "Allowed Threats",
+                    "description": "Specify threats by name that are not blocked by Microsoft Defender ATP for Mac",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                
+                "disallowedThreatActions": {
+                    "title": "Disallowed Threat Actions",
+                    "description": "Restricts the actions that the local user of a device can take when threats are detected. Possible Values: allow (restricts users from allowing threats) & restore (restricts users from restoring threats from the quarantine)",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "enableRealTimeProtection": {
+                    "type": "boolean",
+                    "default": "true",
+                    "title": "Enable Real Time Protection",
+                    "description": "Specify whether to enable real-time protection, which scans files as they are accessed."
+                },
+                "passiveMode": {
+                    "type": "boolean",
+                    "default": "false",
+                    "title": "Enable Passive Mode",
+                    "description": "Specify whether the antivirus engine runs in passive mode."
+                },
+                "exclusionsMergePolicy": {
+                    "type": "string",
+                    "default": "merge",
+                    "title": "Exclusions Merge Policy",
+                    "description": "Specify the merge policy for exclusions. This can be a combination of administrator-defined and user-defined exclusions (merge) or only administrator-defined exclusions (admin_only). This setting can be used to restrict local users from defining their own exclusions."
+                },
+                "exclusions": {
+                    "type": "array",
+                    "title": "Exclusions",
+                    "description": "Specify entities excluded from being scanned. Exclusions can be specified by full paths, extensions, or file names. More information and examples availiable at https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "$type": {
+                                "type": "string"
+                            },
+                            "isDirectory": {
+                                "type": "boolean"
+                            },
+                            "path": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "extension": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "threatTypeSettings": {
+                    "type": "array",
+                    "title": "Threat Type Settings",
+                    "description": "Specify how certain threat types are handled by Microsoft Defender ATP for Mac.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "key",
+                            "value"
+                        ]
+                    }
+                }
+            }
+        },
+        "cloudservice": {
+            "title": "CloudService Config",
+            "description": "Configure the cloud-driven protection features of Microsoft Defender ATP for Mac.",
+            "properties": {
+                "automaticSampleSubmission": {
+                    "type": "boolean",
+                    "default": "true",
+                    "title": "Automatic Sample Submission",
+                    "description": "Determines whether suspicious samples (that are likely to contain threats) are sent to Microsoft. You are prompted if the submitted file is likely to contain personal information."
+                },
+                "diagnosticLevel": {
+                    "type": "string",
+                    "default": "optional",
+                    "title": "Diagnostic Level",
+                    "description": "Diagnostic data is used to keep Microsoft Defender ATP secure and up-to-date, detect, diagnose and fix problems, and also make product improvements. This setting determines the level of diagnostics sent by Microsoft Defender ATP to Microsoft. Values: Optional (default) & Required"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "default": "true",
+                    "title": "Enable CloudService Config",
+                    "description": "Specify whether to enable cloud-delivered protection the device or not."
+                }
+            }
+        },
+        "edr": {
+            "title": "Endpoint Detection and Response (EDR) preferences",
+            "description": "Manage the preferences of the Endpoint Detection and Response (EDR) component of Microsoft Defender ATP for Mac.",
+            "properties": {
+                "earlyPreview": {
+                    "type": "boolean",
+                    "default": "true",
+                    "title": "Enable Early Preview",
+                    "description": "Set up your Mac machine to be an Insider machine to enable preview features."
+                },
+                "tags": {
+                    "title": "Machine Tags",
+                    "description": "Provide a tag to machines for provisioning into console. (only one tag per machine is supported)",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "title": "Key",
+                                "description": "Leave set as GROUP",
+                                "type": "string",
+                                "default": "GROUP"
+                            },
+                            "value": {
+                                "title": "Value",
+                                "description": "Enter EAD Prefix (e.g. 'A1')",
+                                "type": "string",
+                                "default": "<EAD PREFIX>"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "userInterface": {
+            "title": "Show Defender ATP in Menu Bar",
+            "description": "Show or hide Defender ATP in Menu Bar.",
+            "type": "boolean",
+            "default": "true"
+        }
+    }
+}
