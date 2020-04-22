@@ -1,6 +1,6 @@
 {
     "title": "Microsoft Defender ATP (com.microsoft.wdav)",
-    "description": "Preference Domain: com.microsoft.wdav,  Application: Microsoft Defender ATP  Visit <a href='https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences'>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences</a> for preference information",
+    "description": "Preference Domain: com.microsoft.wdav,  Application: Microsoft Defender ATP  Visit <a href='https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences'>https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/mac-preferences</a> for preference information. Modified from Steven Davies https://www.jamf.com/jamf-nation/discussions/34846/configuration-profiles-with-json-custom-schema",
     "type": "object",
     "properties": {
         "antivirusEngine": {
